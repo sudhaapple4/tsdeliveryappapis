@@ -1,7 +1,8 @@
 import express , { Application } from 'express';
 import path from 'path';
 
-import {AdminRoute, VendorRoute} from '../routes';
+import {AdminRoute, CustomerRoute, VendorRoute} from '../routes';
+import { ShoppingRoute } from '../routes/ShoppingRoutes';
 
 export default async(app: Application) => {
 
@@ -16,9 +17,9 @@ export default async(app: Application) => {
     
     app.use('/admin', AdminRoute);
     app.use('/vendor', VendorRoute)
-    // app.use('/customer', CustomerRoute)
+    app.use('/customer', CustomerRoute)
     // app.use('/delivery', DeliveryRoute);
-    // app.use(ShoppingRoute);
+    app.use(ShoppingRoute);
 
     return app;
 
